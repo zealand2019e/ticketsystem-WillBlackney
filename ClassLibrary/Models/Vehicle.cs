@@ -23,7 +23,6 @@ namespace ClassLibrary.Models
             get { return vehicleType; }
             set { VehicleType = value; }
         }
-
         public string LicensePlate
         {
             get { return licensePlate; }
@@ -31,7 +30,7 @@ namespace ClassLibrary.Models
             {
                 if(value.Length > 7)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("Cannot set LP more then 7 characters!");
                 }
                 else
                 {
@@ -41,7 +40,6 @@ namespace ClassLibrary.Models
         }
 
         // Constructor
-
         public Vehicle(string licensePlate)
         {
             LicensePlate = licensePlate;

@@ -71,13 +71,14 @@ namespace Car_Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.ArgumentOutOfRangeException), "License plate is more then 7 characters")]
+        [ExpectedException(typeof(ArgumentOutOfRangeException), "License plate is more then 7 characters")]
         public void ErrorIfLicenseLongerThenSevenCharacters()
         {
             // Arrange
             MotorCycle motorCycle = new MotorCycle("123456");
 
-            Assert.ThrowsException<ArgumentOutOfRangeException>(ErrorIfLicenseLongerThenSevenCharacters);
+            //Assert.ThrowsException<ArgumentOutOfRangeException>(ErrorIfLicenseLongerThenSevenCharacters);
+            Assert.Fail();
 
         }
 
