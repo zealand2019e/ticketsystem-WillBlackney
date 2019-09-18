@@ -4,22 +4,13 @@ using System.Text;
 
 namespace ClassLibrary.Models
 {
-    public class Car
-    {
-        // Variables
-        public string licensePlate;
-        public string vehicleType;
-        public DateTime date;        
-
-        // Properties
-        public double Price()
+    public class Car: Vehicle
+    {              
+        public Car(string licensePlate) : base(licensePlate)
         {
-            return 240; 
-        }
-
-        public string VehicleType()
-        {
-            return "Car";
+            LicensePlate = licensePlate;
+            VehicleType = "Car";
+            Price = 240;
         }
 
     }
