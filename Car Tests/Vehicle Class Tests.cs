@@ -36,6 +36,30 @@ namespace Car_Tests
             // Assert
             Assert.AreEqual(expectedResult, actualResult, "Results are not equal");
         }
+
+        public void TestBrobizzDiscount()
+        {
+            // Arrange
+            double expectedResult = 240 * 0.95;
+
+            // Act
+            Car car = new Car("12345", true);
+
+            // Assert
+            Assert.AreEqual(expectedResult, car.Price);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException), "License plate is more then 7 characters")]
+        public void ErrorIfLicenseLongerThenSevenCharacters()
+        {
+            // Arrange + Act
+            Car car = new Car("12345678");
+
+            // Assert
+            Assert.Fail();
+
+        }
     }
 
     [TestClass]
@@ -71,13 +95,27 @@ namespace Car_Tests
         }
 
         [TestMethod]
+        public void TestBrobizzDiscount()
+        {
+            // Arrange
+            double expectedResult = 125 * 0.95;
+
+            // Act
+            MotorCycle motorCycle = new MotorCycle("12345", true);
+
+            // Assert
+            Assert.AreEqual(expectedResult, motorCycle.Price);
+        }
+
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException), "License plate is more then 7 characters")]
         public void ErrorIfLicenseLongerThenSevenCharacters()
         {
-            // Arrange
+            // Arrange + Act
             MotorCycle motorCycle = new MotorCycle("123456");
 
-            //Assert.ThrowsException<ArgumentOutOfRangeException>(ErrorIfLicenseLongerThenSevenCharacters);
+            // Assert
             Assert.Fail();
 
         }
