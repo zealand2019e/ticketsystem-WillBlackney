@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ClassLibrary.Models;
 
-namespace ClassLibrary.Models
+namespace OresundBronnLibrary
 {
     public class Vehicle
     {
@@ -14,36 +15,11 @@ namespace ClassLibrary.Models
         public bool broBizz;
 
         // Properties
-        public double Price
+        public virtual double Price
         {
             get
             {
-                if (date.DayOfWeek == DayOfWeek.Saturday ||
-                    date.DayOfWeek == DayOfWeek.Sunday)
-                {
-                    if (BroBizz)
-                    {
-                        return (price * 0.80) * 0.95;
-                    }
-                    else
-                    {
-                        return price * 0.95;
-                    }
-                }
-                
-                else
-                {
-                    if (BroBizz)
-                    {
-                        return price * 0.95;
-                    }
-                    else
-                    {
-                        return price;
-                    }
-                    
-                }
-                
+                return price;
             }
 
             set { price = value; }
@@ -58,18 +34,16 @@ namespace ClassLibrary.Models
             get { return licensePlate; }
             set
             {
-                if(value.Length > 7)
+                if (value.Length > 7)
                 {
                     throw new ArgumentOutOfRangeException("Cannot set LP more then 7 characters!");
                 }
                 else
                 {
                     licensePlate = value;
-                }                
+                }
             }
         }
-
-       
 
         public bool BroBizz
         {
